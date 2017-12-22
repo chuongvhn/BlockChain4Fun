@@ -16,22 +16,22 @@ link_directories(
 add_executable( app ${MAIN_SRC} )
 
 #naming debug target based on OS
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-	set_target_properties (
-		app
-			PROPERTIES
-				DEBUG_POSTFIX "64D"
-				RELEASE_POSTFIX"64"
-				RELWITHDEBINFO_POSTFIX "64RD"
-	)
-else()
-	set_target_properties (
-		app
-			PROPERTIES
-				DEBUG_POSTFIX "D"
-				RELWITHDEBINFO_POSTFIX "RD"
-	)
-endif()
+#if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+#	set_target_properties (
+#		app
+#			PROPERTIES
+#				DEBUG_POSTFIX "64D"
+#				RELEASE_POSTFIX"64"
+#				RELWITHDEBINFO_POSTFIX "64RD"
+#	)
+#else()
+#	set_target_properties (
+#		app
+#			PROPERTIES
+#				DEBUG_POSTFIX "D"
+#				RELWITHDEBINFO_POSTFIX "RD"
+#	)
+#endif()
 
 target_include_directories(
 	app
