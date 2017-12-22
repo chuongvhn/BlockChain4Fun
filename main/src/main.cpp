@@ -1,9 +1,12 @@
-#include <iostream>
-#include "blc_block_chain.h"
+#include "blc4f_block_chain.h"
 
-void main(int argc, char *argv[]) {
 
-	std::cout << "Hello World- BlockChain4Fun\n";
-	test_lib();
+
+
+int main(int argc, char *argv[]) {
+
+	CurlTest();
+	std::string ret = sha256Test("pattern for test");
+	return 0;
 
 }

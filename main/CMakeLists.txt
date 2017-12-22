@@ -5,8 +5,14 @@ file(
 		MAIN_SRC
 			src/*.cpp
 	)
+
+#Must be called prior to add_executable	
+link_directories(
+	${CURL_LIB_DIR}/lib
+	${SSL_LIB_DIR}/lib
+	)
 	
-#executable binary
+#executable binary	
 add_executable( app ${MAIN_SRC} )
 
 #naming debug target based on OS
@@ -33,7 +39,6 @@ target_include_directories(
 			${CORE_DIR}/include
 	)
 	
-#TODO: verify dependency specifying 
 target_link_libraries(
 	app
 		${CORE_LIB}
@@ -44,4 +49,10 @@ install(
 		app
 	RUNTIME
 		DESTINATION "./install"
+	)
+
+#change debugging working dir to install directory where .DLLs are installed CMAKE 3.8 or higher 
+set_target_properties(
+	app 
+		PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/build/install"
 	)

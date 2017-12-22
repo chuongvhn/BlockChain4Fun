@@ -12,6 +12,11 @@ file(
 			include/*.hpp
 	)
 	
+link_directories(
+	${CURL_LIB_DIR}/lib
+	${SSL_LIB_DIR}/lib
+	)
+	
 add_library(
 	libblc_core
 		STATIC
@@ -24,8 +29,20 @@ target_include_directories(
 		PRIVATE
 			include
 			#add dependencies 
-			${}
+			${CURL_LIB_DIR}/include
+			${SSL_LIB_DIR}/include
 	)
+
+target_link_libraries(
+	libblc_core
+		libcurl.lib
+		libcurl.dll.lib #why dll here ?
+		libeay32.lib
+		ssleay32.lib
+	)
+		
+	
+
 			
 
 	
