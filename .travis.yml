@@ -1,2 +1,2 @@
 language: cpp
-script: run_build.bat
+script: run_build.sh
