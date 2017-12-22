@@ -1,5 +1,5 @@
 before_install:
-    - sudo apt-get instal cmake
+    - sudo apt-get install cmake
     - sudo apt-get upgrade
 language: cpp
 script: cd build && cmake ../ -DCMAKE_INSTALL_PREFIX=./ && cmake --build ./ --config release --target install
