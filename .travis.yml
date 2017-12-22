@@ -1,2 +1,2 @@
 language: cpp
-script: run_build.sh
+script: cd build && cmake ../ -DCMAKE_INSTALL_PREFIX=./ && cmake --build ./ --config release --target install
