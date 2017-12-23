@@ -33,7 +33,7 @@ else()
 	)
 endif()
 
-target_include_directories(
+include_directories(
 	app
 		PRIVATE
 			${CORE_DIR}/include
