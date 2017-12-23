@@ -45,4 +45,4 @@ namespace blc4f {
 
 }
 
-#endif __BLOCK_CHAIN_4FUN_
+#endif //__BLOCK_CHAIN_4FUN_
