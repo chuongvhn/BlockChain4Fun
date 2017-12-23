@@ -8,7 +8,6 @@ os:
 - linux
 before_install:
     - sudo apt-get install cmake
-    - sudo apt-get upgrade
     - cmake --version
 
 script: cd build && cmake ../ -DCMAKE_INSTALL_PREFIX=./ && cmake --build ./ --config release --target install
