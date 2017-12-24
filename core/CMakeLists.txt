@@ -12,11 +12,6 @@ file(
 			include/*.hpp
 	)
 	
-link_directories(
-	${CURL_LIB_DIR}/lib
-	${SSL_LIB_DIR}/lib
-	)
-	
 add_library(
 	libblc_core
 		STATIC
@@ -24,7 +19,7 @@ add_library(
 		${CORE_INCLUDE}
 	)
 
-target_include_directories(
+include_directories(
 	libblc_core
 		PRIVATE
 			include
@@ -33,6 +28,15 @@ target_include_directories(
 			${SSL_LIB_DIR}/include
 	)
 
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+target_link_libraries(
+	libblc_core
+		curl.lib
+		curl.dll.lib #why dll here ?
+		eay32.lib
+		ssleay32.lib
+	)
+elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 target_link_libraries(
 	libblc_core
 		libcurl.lib
@@ -40,7 +44,7 @@ target_link_libraries(
 		libeay32.lib
 		ssleay32.lib
 	)
-		
+endif()		
 	
 
 			

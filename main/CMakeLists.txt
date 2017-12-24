@@ -42,10 +42,6 @@ include_directories(
 target_link_libraries(
 	app
 		${CORE_LIB}
-		libcurl.lib
-		libcurl.dll.lib #why dll here ?
-		libeay32.lib
-		ssleay32.lib
 	)
 	
 install(
