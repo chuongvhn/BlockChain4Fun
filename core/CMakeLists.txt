@@ -35,7 +35,7 @@ target_link_libraries(
 		libeay32.lib
 		ssleay32.lib
 	)
-endif()		
+
 	
 
 			
