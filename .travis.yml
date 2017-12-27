@@ -12,6 +12,7 @@ before_install:
     - cmake --version
     - curl --version
     - openssl version
+    - chmod +x linux_build.sh 
 
-script: cd build && cmake ../ -DCMAKE_INSTALL_PREFIX=./ -DCMAKE_CXX_FLAGS="-Xlinker --verbose" 
-script: cmake --build ./ --config release --target install
+script: linux_build.sh 
+
