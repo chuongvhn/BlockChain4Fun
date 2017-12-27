@@ -28,6 +28,14 @@ include_directories(
 			${SSL_LIB_DIR}/include
 	)
 
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+target_link_libraries(#GNU will add "lib" prefix himself
+	libblc_core
+		curl
+		eay32
+		ssleay32
+	)
+elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 target_link_libraries(
 	libblc_core
 		libcurl.lib
@@ -35,6 +43,7 @@ target_link_libraries(
 		libeay32.lib
 		ssleay32.lib
 	)
+endif()		
 
 	
 

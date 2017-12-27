@@ -7,7 +7,10 @@ compiler:
 os: 
 - linux
 before_install:
-    - sudo apt-get install cmake
+    - sudo apt-get install curl
+    - sudo apt-get install openssl
     - cmake --version
+    - curl --version
+    - openssl version
 
-script: cd build && cmake ../ -DCMAKE_INSTALL_PREFIX=./ && cmake --build ./ --config release --target install
+script: cd build && cmake ../ -DCMAKE_INSTALL_PREFIX=./ -DCMAKE_CXX_FLAGS="-Xlinker --verbose" && cmake --build ./ --config release --target install
