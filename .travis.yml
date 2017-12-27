@@ -14,5 +14,5 @@ before_install:
     - openssl version
     - chmod +x linux_build.sh 
 
-script: linux_build.sh 
+script: ./linux_build.sh 
 

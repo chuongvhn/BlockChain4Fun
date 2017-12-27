@@ -1,6 +1,8 @@
 # BlockChain4Fun
 Inspired by https://github.com/dvf/blockchain (written in Python) to port to C++
 
+[![Travis Build](https://travis-ci.org/chuongvhn/BlockChain4Fun.svg?branch=master)](https://travis-ci.org/chuongvhn/BlockChain4Fun)
+
 ## Prerequisites 
 
 - CMAKE 3.0 or higher  
@@ -10,10 +12,13 @@ Inspired by https://github.com/dvf/blockchain (written in Python) to port to C++
 
 **Alternative 1**: End-to-End build:
  
- run run_build.bat
+ run win_build.bat or linux_build.sh
 
 ```   
-./run_build.bat
+$./run_build.bat
+or 
+$chmod +x linux_build.sh
+$./linux_build.sh
 ```   
 
  Binary is found in build/install
