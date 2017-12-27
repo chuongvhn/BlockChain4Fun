@@ -22,6 +22,7 @@ add_subdirectory(main)
 add_subdirectory(core)
 
 #deploy additional stuffs
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 install(
 	DIRECTORY
 		${CURL_LIB_DIR}/bin/
@@ -29,3 +30,4 @@ install(
 	DESTINATION
 		"./install"
 	)
+endif()

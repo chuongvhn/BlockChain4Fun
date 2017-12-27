@@ -32,8 +32,8 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 target_link_libraries(#GNU will add "lib" prefix himself
 	libblc_core
 		curl
-		eay32
-		ssleay32
+		ssl 
+		crypto
 	)
 elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 target_link_libraries(
