@@ -23,10 +23,10 @@ Inspired by https://github.com/dvf/blockchain (written in Python) to port to C++
  run wins_build.bat or linux_build.sh
 
 ```  
-$./wins_build.bat  
+$./build_wins.bat  
 or
-$chmod +x linux_build.sh  
-$./linux_build.sh
+$chmod +x build_linux.sh  
+$./build_linux.sh
 ```   
 
  Binary is found in build/install
