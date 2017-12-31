@@ -11,7 +11,7 @@ Inspired by https://github.com/dvf/blockchain (written in Python) to port to C++
 2.1. Windows: there's many choices to install the library and among of them is via vcpkg
    * install vcpkg: find instruction on [vcpkg GitHub](https://github.com/Microsoft/vcpkg)
    * install [cpprestsdk](https://github.com/Microsoft/cpprestsdk): vcpkg install cpprestsdk
-   * _optional_: $./vcpkg integrate install   
+   * _optional_: $./vcpkg integrate install
  2.2. Linux(ubuntu):  $sudo apt-get install libcpprest-dev 
 
 
