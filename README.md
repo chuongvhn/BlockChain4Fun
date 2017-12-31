@@ -12,7 +12,7 @@ Inspired by https://github.com/dvf/blockchain (written in Python) to port to C++
    * install vcpkg: find instruction on [vcpkg GitHub](https://github.com/Microsoft/vcpkg)
    * install [cpprestsdk](https://github.com/Microsoft/cpprestsdk): vcpkg install cpprestsdk
    * _optional_: $./vcpkg integrate install  
-
+     
 2.2. Linux(ubuntu):  $sudo apt-get install libcpprest-dev 
 
 
