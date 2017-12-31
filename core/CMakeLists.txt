@@ -26,6 +26,7 @@ include_directories(
 			#add dependencies 
 			${CURL_LIB_DIR}/include
 			${SSL_LIB_DIR}/include
+			${CPPREST_DIR}/include
 	)
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
@@ -42,6 +43,7 @@ target_link_libraries(
 		libcurl.dll.lib #why dll here ?
 		libeay32.lib
 		ssleay32.lib
+		cpprest_2_10.lib
 	)
 endif()		
 

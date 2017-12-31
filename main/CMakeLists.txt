@@ -10,6 +10,7 @@ file(
 link_directories(
 	${CURL_LIB_DIR}/lib
 	${SSL_LIB_DIR}/lib
+	${CPPREST_DIR}/lib
 	)
 	
 #executable binary	

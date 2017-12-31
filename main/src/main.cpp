@@ -1,12 +1,15 @@
 #include "blc4f_block_chain.h"
 
+#include <iostream>
+
 
 
 
 int main(int argc, char *argv[]) {
 
-	CurlTest();
-	std::string ret = sha256Test("pattern for test");
+	TestCurl();
+	TestCppRest();
+	std::cout<< TestSha256("pattern for test");
 	return 0;
 
 }

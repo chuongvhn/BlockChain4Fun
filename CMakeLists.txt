@@ -13,9 +13,11 @@ set (CORE_LIB "libblc_core")
 set (LIB_DIR "${PROJECT_SOURCE_DIR}/lib")
 set (CURL_LIB_DIR "${LIB_DIR}/curl-7.57.0-win32")
 set (SSL_LIB_DIR "${LIB_DIR}/openssl-1.1.0-win32")
+set (CPPREST_DIR "C:/Users/vohoa/vcpkg/packages/cpprestsdk_x86-windows")
 
 #Find required package
-#find_package()
+#find_package(cpprestsdk REQUIRED)
+#find_package(sqlite3 REQUIRED)
 
 #add sub directory to build tree
 add_subdirectory(main)
@@ -27,6 +29,7 @@ install(
 	DIRECTORY
 		${CURL_LIB_DIR}/bin/
 		${SSL_LIB_DIR}/bin/
+		${CPPREST_DIR/bin}
 	DESTINATION
 		"./install"
 	)

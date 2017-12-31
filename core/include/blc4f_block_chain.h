@@ -7,8 +7,9 @@
 #include <string>
 
 
-void CurlTest();
-std::string sha256Test(const std::string str);
+void TestCurl();
+void TestCppRest();
+std::string TestSha256(const std::string str);
 
 namespace blc4f {
 	/**
