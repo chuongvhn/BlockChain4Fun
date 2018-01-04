@@ -9,10 +9,11 @@ os:
 before_install:
     - sudo apt-get install curl
     - sudo apt-get install openssl
+    - sudo apt-get install libcpprest-dev 
     - cmake --version
     - curl --version
     - openssl version
-    - chmod +x linux_build.sh 
+    - chmod +x build_linux.sh 
 
-script: ./linux_build.sh 
+script: ./build_linux.sh 
 
