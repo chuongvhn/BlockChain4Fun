@@ -7,12 +7,13 @@ set(CMAKE_LIBRARY_ARCHITECTURE "x86")
 #For grouping project
 set_property(GLOBAL PROPERTY USE_FOLDERS ON) 
 
-#directory setting
-set (CORE_DIR "${PROJECT_SOURCE_DIR}/core")
-set (CORE_LIB "libblc_core")
-set (LIB_DIR "${PROJECT_SOURCE_DIR}/lib")
-set (CURL_DIR "${LIB_DIR}/curl-7.57.0-win32")
-set (SSL_DIR "${LIB_DIR}/openssl-1.1.0-win32")
+#path setting
+set(CORE_DIR "${PROJECT_SOURCE_DIR}/core")
+set(CORE_LIB "libblc_core")
+set(LIB_DIR "${PROJECT_SOURCE_DIR}/lib")
+set(CURL_DIR "${LIB_DIR}/curl-7.57.0-win32")
+set(SSL_DIR "${LIB_DIR}/openssl-1.1.0-win32")
+
 #TODO: refine this configuration once get clarification 
 #from vcpkg  https://github.com/Microsoft/vcpkg/issues/2484
 find_path(
@@ -22,18 +23,19 @@ find_path(
 )
 set (CPPREST_DIR "${CPPREST_IMMEDIATE_DIR}/cpprestsdk_x86-windows")
 
-
 find_path(
-	BOOST_SYSTEM_DIR
+	BOOST_SYSTEM_IMMEDIATE_DIR
 	NAMES boost-system_x86-windows/include/boost/system/
 	PATHS $ENV{Path}
 )
+set(BOOST_SYSTEM_DIR ${BOOST_SYSTEM_IMMEDIATE_DIR}/boost-system_x86-windows)
 
 find_path(
-	BOOST_DATE_TIME_DIR
+	BOOST_DATE_TIME_IMMEDIATE_DIR
 	NAMES boost-date-time_x86-windows/include/boost/date_time/
 	PATHS $ENV{Path}
 )
+set(BOOST_DATE_TIME_DIR ${BOOST_DATE_TIME_IMMEDIATE_DIR}/boost-date-time_x86-windows)
 
 message("cpprest: " ${CPPREST_DIR}) 
 message("boost date time: " ${BOOST_DATE_TIME_DIR})
@@ -41,11 +43,10 @@ message("boost system: " ${BOOST_SYSTEM_DIR})
 
 
 #TODO: find_library,find_package does not work for boost, need to check 
-#set(BOOST_ROOT )
-#set(BOOST_LIBRARYDIR )
+#set(BOOST_ROOT "where" )
+#set(BOOST_LIBRARYDIR "where")
 #set(Boost_USE_STATIC_LIBS ON)
 #set(Boost_USE_MULTITHREADED ON)
-
 #find_package(Boost)
 #if (WIN32)
 #  # disable autolinking in boost
@@ -66,9 +67,13 @@ add_subdirectory(core)
 if(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
 install(
 	DIRECTORY
+		${LIB_DIR}/bin/
 		${CURL_DIR}/bin/
 		${SSL_DIR}/bin/
 		${CPPREST_DIR}/bin/
+		${BOOST_SYSTEM_DIR}/bin/
+		${BOOST_DATE_TIME_DIR}/bin/
+		
 	DESTINATION
 		"./install"
 	)
