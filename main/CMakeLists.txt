@@ -8,8 +8,8 @@ file(
 
 #Must be called prior to add_executable	
 link_directories(
-	${CURL_LIB_DIR}/lib
-	${SSL_LIB_DIR}/lib
+	${CURL_DIR}/lib
+	${SSL_DIR}/lib
 	${CPPREST_DIR}/lib
 	)
 	

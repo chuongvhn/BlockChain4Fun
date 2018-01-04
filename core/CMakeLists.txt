@@ -24,19 +24,20 @@ include_directories(
 		PRIVATE
 			include
 			#add dependencies 
-			${CURL_LIB_DIR}/include
-			${SSL_LIB_DIR}/include
+			${CURL_DIR}/include
+			${SSL_DIR}/include
 			${CPPREST_DIR}/include
 	)
 
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+if(${CMAKE_CXX_COMPILER_ID} STREQUAL GNU)
 target_link_libraries(#GNU will add "lib" prefix himself
 	libblc_core
 		curl
 		ssl 
 		crypto
+		cpprest_2_10
 	)
-elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+elseif(${CMAKE_CXX_COMPILER_ID} STREQUAL MSVC)
 target_link_libraries(
 	libblc_core
 		libcurl.lib

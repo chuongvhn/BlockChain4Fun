@@ -3,6 +3,6 @@
 
 
 cd build
-cmake ../ -DCMAKE_INSTALL_PREFIX=./ -DCMAKE_TOOLCHAIN_FILE=C:/Users/vohoa/vcpkg/scripts/buildsystems/vcpkg.cmake
+cmake ../ -DCMAKE_INSTALL_PREFIX=./ 
 cmake --build ./ --config release --target install
 cd ..
