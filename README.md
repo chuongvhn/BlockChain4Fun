@@ -2,6 +2,9 @@
 Inspired by https://github.com/dvf/blockchain (written in Python) to port to C++
 
 [![Travis Build](https://travis-ci.org/chuongvhn/BlockChain4Fun.svg?branch=master)](https://travis-ci.org/chuongvhn/BlockChain4Fun)
+[![Windows Build](https://ci.appveyor.com/api/github/webhook?id=jixa4ssowm0k7ue3
+)](https://ci.appveyor.com/project/chuongvhn/BlockChain4Fun/branch/master)
+
 
 ## Prerequisites 
 
