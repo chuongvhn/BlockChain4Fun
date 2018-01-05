@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <string>
+#include <stdint.h>
 
 
 void TestCurl();
@@ -32,15 +33,22 @@ namespace blc4f {
 		Blc4fBlockChain();
 		virtual ~Blc4fBlockChain();
 
-		void CreateBlock(std::string previous_hash, std::string proof);
+		//Create new block and add to chain
+		void NewBlock(std::string & previous_hash, std::string & proof);
+		//Create new transaction for a block
+		Blc4fTransaction NewTransaction(std::string const & sender, std::string const & recipient,
+										uint32_t amount );
+		Blc4fBlockChain GetLastBlock(void) const;
 
-		std::vector<Blc4fTransaction> m_current_transaction;
+		std::vector<Blc4fTransaction> m_current_trans_list;
 		std::vector<Blc4fBlockChain> m_chain;
 		std::string m_previous_hash;
-		std::string m_proof;
+		double m_proof;
 
 	private:
 		std::string Hashing(Blc4fBlockChain block);
+		bool ValidateProof(double last_proof, double proof);
+		void ProofOfWork(double last_proof);
 
 	};
 

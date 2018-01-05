@@ -101,6 +101,7 @@ void TestCurl() {
 
 }
 
+namespace blc4f {
 
 blc4f::Blc4fBlockChain::Blc4fBlockChain()
 {
@@ -110,11 +111,48 @@ blc4f::Blc4fBlockChain::~Blc4fBlockChain()
 {
 }
 
-void blc4f::Blc4fBlockChain::CreateBlock(std::string previous_hash, std::string proof)
-{
+void Blc4fBlockChain::NewBlock(std::string & previous_hash, std::string & proof)
+{	
+	if (m_chain.size()) {
+		m_previous_hash = Hashing(m_chain.back());
+		ProofOfWork(m_chain.back().m_proof);
+	}
+
+	m_chain.push_back(*this);
 }
 
-std::string blc4f::Blc4fBlockChain::Hashing(Blc4fBlockChain block)
+Blc4fTransaction Blc4fBlockChain::NewTransaction(std::string const & sender, std::string const & recipient, uint32_t amount)
+{
+	Blc4fTransaction trans(sender, recipient, amount);
+	
+	m_current_trans_list.push_back(trans);
+
+	return trans;
+}
+
+Blc4fBlockChain Blc4fBlockChain::GetLastBlock(void) const
+{
+	if(m_chain.size()) return m_chain.back();
+
+	throw std::exception("No block in chain");
+}
+
+std::string Blc4fBlockChain::Hashing(Blc4fBlockChain block)
 {
 	return std::string();
+}
+
+bool Blc4fBlockChain::ValidateProof(double last_proof, double proof)
+{
+	return false;
+}
+
+
+void Blc4fBlockChain::ProofOfWork(double last_proof)
+{
+	while (!ValidateProof(last_proof, m_proof)) {
+		m_proof++;
+	}
+}
+
 }
