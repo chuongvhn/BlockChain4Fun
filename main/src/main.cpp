@@ -7,9 +7,17 @@
 
 int main(int argc, char *argv[]) {
 
-	TestCurl();
-	TestCppRest();
-	std::cout<< TestSha256("pattern for test");
+	//TestCurl();
+	//TestCppRest();
+
+	blc4f::Blc4fBlockChain BlockChain;
+
+	BlockChain.NewTransaction("calvin", "lina", 100);
+	BlockChain.NewTransaction("lina", "steve", 100);
+	BlockChain.NewBlock();
+	BlockChain.NewTransaction("lina", "steve", 100);
+	BlockChain.NewBlock();
+
 	return 0;
 
 }
