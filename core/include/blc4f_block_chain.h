@@ -5,11 +5,12 @@
 
 #include <vector>
 #include <string>
+#include <stdint.h>
+#include <memory>
 
 
 void TestCurl();
 void TestCppRest();
-std::string TestSha256(const std::string str);
 
 namespace blc4f {
 	/**
@@ -32,15 +33,36 @@ namespace blc4f {
 		Blc4fBlockChain();
 		virtual ~Blc4fBlockChain();
 
-		void CreateBlock(std::string previous_hash, std::string proof);
+		//Create new block and add to chain
+		void NewBlock();
 
-		std::vector<Blc4fTransaction> m_current_transaction;
+		//Create new transaction for a block
+		Blc4fTransaction NewTransaction( std::string const & sender, 
+										 std::string const & recipient,
+										 uint32_t amount );
+
+		Blc4fBlockChain GetLastBlock(void) const;
+
+		std::string ToString() const;
+		std::vector<Blc4fTransaction> m_current_trans_list;
+
+		//chain should be persistent storage in final version
+		//for demo version by now made it via smart pointer as a handy way
 		std::vector<Blc4fBlockChain> m_chain;
 		std::string m_previous_hash;
-		std::string m_proof;
+		double m_proof;
 
 	private:
-		std::string Hashing(Blc4fBlockChain block);
+		double m_index;
+		double m_time_stamp;
+		std::string Sha256(const std::string str);
+
+		bool ValidateProof(double last_proof, double proof);
+
+		void ProofOfWork(double last_proof);
+
+		std::string TransToString() const;
+		void ClearBlock();
 
 	};
 
