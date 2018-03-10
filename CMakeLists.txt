@@ -69,7 +69,7 @@ install(
 	DIRECTORY
 		${LIB_DIR}/bin/
 		${CURL_DIR}/bin/
-		${SSL_DIR}/bin/
+		#${SSL_DIR}/bin/
 		${CPPREST_DIR}/bin/
 		${BOOST_SYSTEM_DIR}/bin/
 		${BOOST_DATE_TIME_DIR}/bin/
