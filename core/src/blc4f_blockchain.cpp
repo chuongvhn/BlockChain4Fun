@@ -1,4 +1,4 @@
-#include "blc4f_block_chain.h"
+#include "blc4f_blockchain.h"
 
 #include <curl/curl.h>
 #include <openssl/sha.h>
@@ -123,7 +123,9 @@ namespace blc4f {
 		ClearBlock();
 	}
 
-	Blc4fTransaction Blc4fBlockChain::NewTransaction(std::string const & sender, std::string const & recipient, uint32_t amount)
+	Blc4fTransaction Blc4fBlockChain::NewTransaction(std::string const & sender, 
+													 std::string const & recipient, 
+													 uint32_t const amount)
 	{
 		Blc4fTransaction trans(sender, recipient, amount);
 		
@@ -179,7 +181,7 @@ namespace blc4f {
 
 	void Blc4fBlockChain::ProofOfWork(double last_proof)
 	{
-		m_proof = 0;
+		m_proof = 0; 
 		auto IsValidProof = [&]( )->bool {
 			std::string result = Sha256(std::to_string(last_proof) + std::to_string(m_proof));
 			//difficulty is 0000

@@ -16,7 +16,7 @@ namespace blc4f {
 	*/
 	class Blc4fTransaction {
 	public:
-		Blc4fTransaction(std::string const sender, std::string const recipient, uint32_t amount ) 
+		explicit Blc4fTransaction(std::string const sender, std::string const recipient, uint32_t const amount ) 
 			:m_sender(sender), m_recipient(recipient), m_amount(amount) {}
 		virtual ~Blc4fTransaction();
 

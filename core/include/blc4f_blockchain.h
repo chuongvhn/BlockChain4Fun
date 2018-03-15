@@ -39,7 +39,7 @@ namespace blc4f {
 		//Create new transaction for a block
 		Blc4fTransaction NewTransaction( std::string const & sender, 
 										 std::string const & recipient,
-										 uint32_t amount );
+										 uint32_t const amount );
 
 		Blc4fBlockChain GetLastBlock(void) const;
 
