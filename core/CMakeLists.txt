@@ -44,7 +44,6 @@ target_link_libraries(
 		libcurl.dll.lib #why dll here ?
 		libeay32.lib
 		ssleay32.lib
-		cpprest_2_10.lib
 	)
 endif()		
 

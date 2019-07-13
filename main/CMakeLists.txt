@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)
-##################################################
+cmake_minimum_required( VERSION 3.0.0 FATAL_ERROR )
+
 file(
 	GLOB 
 		MAIN_SRC
@@ -10,14 +10,14 @@ file(
 link_directories(
 	${CURL_DIR}/lib
 	${SSL_DIR}/lib
-	${CPPREST_DIR}/lib
+	#${CPPREST_DIR}/lib
 	)
 	
 #executable binary	
 add_executable( app ${MAIN_SRC} )
 
 #naming debug target based on OS
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+if( CMAKE_SIZEOF_VOID_P EQUAL 8 )
 	set_target_properties (
 		app
 		PROPERTIES
