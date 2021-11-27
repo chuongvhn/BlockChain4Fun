@@ -41,6 +41,7 @@ namespace blc4f {
 
 	private:
 		std::string Hashing(Blc4fBlockChain block);
+		//test checkin github
 
 	};
 
